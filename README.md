@@ -1,13 +1,13 @@
-# Welcome to @koromerzhin/template-electron 👋
+# Welcome to @hackariens/electron 👋
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/koromerzhin/template-electron/graphs/commit-activity)
-![Continuous Integration](https://github.com/koromerzhin/template-electron/workflows/Continuous%20Integration/badge.svg?branch=develop)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/hackariens/electron/graphs/commit-activity)
+![Continuous Integration](https://github.com/hackariens/electron/workflows/Continuous%20Integration/badge.svg?branch=develop)
 
 > Template de nouveau project electron
 
-## 🏠 [Homepage](https://github.com/koromerzhin/template-electron#readme)
+## 🏠 [Homepage](https://github.com/hackariens/electron#readme)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#-contributors)
@@ -23,7 +23,7 @@ Software:
 ## Download
 
 ```sh
-git clone git@github.com:koromerzhin/template-electron.git template-electron
+git clone git@github.com:hackariens/electron.git template-electron
 cd template-electron
 git submodule update --init
 ```
@@ -59,9 +59,9 @@ make help
 
 Contributions, issues and feature requests are welcome!
 Feel free to check
-[issues page](https://github.com/koromerzhin/template-electron/issues).
+[issues page](https://github.com/hackariens/electron/issues).
 You can also take a look at the
-[contributing guide](https://github.com/koromerzhin/template-electron/blob/develop/CONTRIBUTING.md).
+[contributing guide](https://github.com/hackariens/electron/blob/develop/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -72,7 +72,7 @@ Give a ⭐️ if this project helped you!
 Copyright © 2019 [koromerzhin](https://github.com/koromerzhin).
 
 This project is
-[MIT](https://github.com/koromerzhin/template-electron/blob/develop/LICENSE) licensed.
+[MIT](https://github.com/hackariens/electron/blob/develop/LICENSE) licensed.
 
 ## ✨ Contributors
 
