@@ -1,27 +1,22 @@
 {
-  "name": "@koromerzhin/template-electron",
+  "name": "@hackariens/electron",
   "version": "1.0.0",
   "description": "Template de nouveau project electron",
   "scripts": {
-    "linter-markdown": "markdownlint",
-    "contributors": "all-contributors",
-    "readme": "readme",
-    "licenses": "license-checker",
-    "changelog": "changelog",
-    "jscpd": "jscpd apps"
+    "lint:markdown": "markdownlint README.md"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koromerzhin/template-electron.git"
+    "url": "git+https://github.com/hackariens/electron.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koromerzhin/template-electron/issues"
+    "url": "https://github.com/hackariens/electron/issues"
   },
-  "homepage": "https://github.com/koromerzhin/template-electron#readme",
+  "homepage": "https://github.com/hackariens/electron#readme",
   "dependencies": {
-    "koromerzhin-dependencies": "^1.3.0"
+    "korojscommands": "^1.2.7"
   }
 }
