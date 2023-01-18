@@ -26,10 +26,20 @@ git clone --recurse-submodules git@github.com:hackariens/electron.git electron
 cd electron
 ```
 
+## Environnment
+
+Edit .env with .env.example
+
 ## Install
 
 ```sh
 npm install
+```
+
+## Launch
+
+``` sh
+npm run exec
 ```
 
 ## Author
