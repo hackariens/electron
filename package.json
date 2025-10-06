@@ -21,6 +21,7 @@
   "devDependencies": {
     "all-contributors-cli": "^6.26.1",
     "cypress": "^15.3.0",
+    "electron": "^38.2.1",
     "generate-changelog": "^1.8.0",
     "gitmoji-changelog": "^2.3.0",
     "jscpd": "^4.0.5",
@@ -30,8 +31,5 @@
     "readme-md-generator": "^1.0.0",
     "semantic-git-commit-cli": "^3.7.0",
     "yaml": "^2.8.1"
-  },
-  "dependencies": {
-    "electron": "^38.2.1"
   }
 }
