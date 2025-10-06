@@ -117,7 +117,7 @@ jobs:
         if: matrix.platform == 'linux'
         run: |
           cd apps
-          npx electron-builder --linux --x64 --publish=never
+          npx electron-builder --linux tar.gz --x64 --publish=never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -125,7 +125,7 @@ jobs:
         if: matrix.platform == 'win'
         run: |
           cd apps
-          npx electron-builder --win --x64 --publish=never
+          npx electron-builder --win portable --x64 --publish=never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -133,7 +133,7 @@ jobs:
         if: matrix.platform == 'mac'
         run: |
           cd apps
-          npx electron-builder --mac --x64 --publish=never
+          npx electron-builder --mac dmg --x64 --publish=never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false

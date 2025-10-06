@@ -1,0 +1,48 @@
+{
+  "appId": "com.hackariens.electron",
+  "productName": "Hackariens Electron App",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "**/*",
+    "!node_modules/**/*",
+    "!src/**/*",
+    "!.git/**/*",
+    "!dist/**/*"
+  ],
+  "linux": {
+    "target": [
+      {
+        "target": "tar.gz",
+        "arch": ["x64"]
+      }
+    ],
+    "category": "Development",
+    "icon": "icon.png"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "icon.ico"
+  },
+  "mac": {
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64"]
+      }
+    ],
+    "category": "public.app-category.developer-tools",
+    "icon": "icon.icns"
+  },
+  "compression": "normal",
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  }
+}
