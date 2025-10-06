@@ -4,6 +4,10 @@
   "description": "Template de nouveau project electron",
   "scripts": {
     "start": "electron .",
+    "build": "electron-builder --config electron-builder.json",
+    "build:linux": "electron-builder --linux --config electron-builder.json",
+    "build:win": "electron-builder --win --config electron-builder.json",
+    "build:mac": "electron-builder --mac --config electron-builder.json",
     "lint:markdown": "markdownlint README.md"
   },
   "main": "apps/main.js",
@@ -22,6 +26,7 @@
     "all-contributors-cli": "^6.26.1",
     "cypress": "^15.3.0",
     "electron": "^38.2.1",
+    "electron-builder": "^26.0.12",
     "generate-changelog": "^1.8.0",
     "gitmoji-changelog": "^2.3.0",
     "jscpd": "^4.0.5",
