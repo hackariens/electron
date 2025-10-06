@@ -74,10 +74,17 @@ jobs:
     name: Build Electron App
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
-    needs: [lint, test]
+    needs: [lint]
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            platform: linux
+          - os: windows-latest
+            platform: win
+          - os: macos-latest
+            platform: mac
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -93,6 +100,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install app dependencies
+        run: |
+          cd apps
+          npm ci
+
       - name: Cache Electron binaries
         uses: actions/cache@v4
         with:
@@ -101,16 +113,34 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-electron-
 
-      - name: Build Electron app
+      - name: Build Electron app (Linux)
+        if: matrix.platform == 'linux'
         run: |
-          npx electron-builder --publish=never
+          cd apps
+          npx electron-builder --linux --x64 --publish=never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build Electron app (Windows)
+        if: matrix.platform == 'win'
+        run: |
+          cd apps
+          npx electron-builder --win --x64 --publish=never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Electron app (macOS)
+        if: matrix.platform == 'mac'
+        run: |
+          cd apps
+          npx electron-builder --mac --x64 --publish=never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
-        if: matrix.os == 'ubuntu-latest'
         with:
-          name: electron-app-${{ github.sha }}
+          name: electron-app-${{ matrix.platform }}-${{ github.sha }}
           path: dist/
           retention-days: 7
