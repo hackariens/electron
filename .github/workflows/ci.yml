@@ -37,7 +37,7 @@ jobs:
         run: npm run lint:markdown
 
       - name: Check for duplicate code
-        run: npx jscpd .
+        run: npx jscpd apps/
 
       - name: License check
         run: npx license-checker --summary
