@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 22
+  NODE_VERSION: 20
   ELECTRON_CACHE: ~/.cache/electron
   ELECTRON_BUILDER_CACHE: ~/.cache/electron-builder
 
@@ -37,7 +37,7 @@ jobs:
         run: npm run lint:markdown
 
       - name: Check for duplicate code
-        run: npx jscpd apps/
+        run: npx jscpd .
 
       - name: License check
         run: npx license-checker --summary
@@ -113,11 +113,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-electron-
 
+      - name: Setup Linux dependencies
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+
       - name: Build Electron app (Linux)
         if: matrix.platform == 'linux'
         run: |
           cd apps
-          npx electron-builder --linux tar.gz --x64 --publish=never
+          xvfb-run -a npx electron-builder --linux tar.gz --x64 --publish=never --config electron-builder.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -125,7 +131,7 @@ jobs:
         if: matrix.platform == 'win'
         run: |
           cd apps
-          npx electron-builder --win portable --x64 --publish=never
+          npx electron-builder --win portable --x64 --publish=never --config electron-builder.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -133,7 +139,7 @@ jobs:
         if: matrix.platform == 'mac'
         run: |
           cd apps
-          npx electron-builder --mac dmg --x64 --publish=never
+          npx electron-builder --mac dmg --x64 --publish=never --config electron-builder.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
