@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Template de nouveau project electron",
   "scripts": {
+    "start": "electron .",
     "lint:markdown": "markdownlint README.md"
   },
+  "main": "apps/main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hackariens/electron.git"
@@ -28,5 +30,8 @@
     "readme-md-generator": "^1.0.0",
     "semantic-git-commit-cli": "^3.7.0",
     "yaml": "^2.8.1"
+  },
+  "dependencies": {
+    "electron": "^38.2.1"
   }
 }
