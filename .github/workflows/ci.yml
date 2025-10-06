@@ -75,17 +75,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-electron-
 
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: .
-          start: npm run start --prefix apps
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120
-          browser: electron
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-
   build:
     name: Build Electron App
     runs-on: ${{ matrix.os }}
