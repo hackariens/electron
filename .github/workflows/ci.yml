@@ -100,11 +100,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install app dependencies
-        run: |
-          cd apps
-          npm ci
-
       - name: Cache Electron binaries
         uses: actions/cache@v4
         with:
@@ -122,7 +117,6 @@ jobs:
       - name: Build Electron app (Linux)
         if: matrix.platform == 'linux'
         run: |
-          cd apps
           xvfb-run -a npx electron-builder --linux tar.gz --x64 --publish=never --config electron-builder.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -130,7 +124,6 @@ jobs:
       - name: Build Electron app (Windows)
         if: matrix.platform == 'win'
         run: |
-          cd apps
           npx electron-builder --win portable --x64 --publish=never --config electron-builder.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -138,7 +131,6 @@ jobs:
       - name: Build Electron app (macOS)
         if: matrix.platform == 'mac'
         run: |
-          cd apps
           npx electron-builder --mac dmg --x64 --publish=never --config electron-builder.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
