@@ -62,16 +62,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install app dependencies
-        run: |
-          cd apps
-          npm ci
-
       - name: Cache Electron binaries
         uses: actions/cache@v4
         with:
           path: ${{ env.ELECTRON_CACHE }}
-          key: ${{ runner.os }}-electron-${{ hashFiles('apps/package-lock.json') }}
+          key: ${{ runner.os }}-electron-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-electron-
 
@@ -98,22 +93,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install app dependencies
-        run: |
-          cd apps
-          npm ci
-
       - name: Cache Electron binaries
         uses: actions/cache@v4
         with:
           path: ${{ env.ELECTRON_CACHE }}
-          key: ${{ runner.os }}-electron-${{ hashFiles('apps/package-lock.json') }}
+          key: ${{ runner.os }}-electron-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-electron-
 
       - name: Build Electron app
         run: |
-          cd apps
           npx electron-builder --publish=never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -123,5 +112,5 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         with:
           name: electron-app-${{ github.sha }}
-          path: apps/dist/
+          path: dist/
           retention-days: 7
