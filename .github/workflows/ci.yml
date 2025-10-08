@@ -29,6 +29,13 @@ jobs:
           cache: npm
           cache-dependency-path: 'package-lock.json'
 
+      - name: Setup cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm ci
 
@@ -59,8 +66,18 @@ jobs:
           cache: npm
           cache-dependency-path: 'package-lock.json'
 
+      - name: Setup cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ ! -d node_modules ]; then
+            npm install
+          fi
 
       - name: Cache Electron binaries
         uses: actions/cache@v4
@@ -99,7 +116,10 @@ jobs:
           cache-dependency-path: 'package-lock.json'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ ! -d node_modules ]; then
+            npm install
+          fi
 
       - name: Cache Electron binaries
         uses: actions/cache@v4
