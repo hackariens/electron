@@ -37,7 +37,10 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ ! -d node_modules ]; then
+            npm install
+          fi
 
       - name: Lint markdown files
         run: npm run lint:markdown
