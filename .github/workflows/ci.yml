@@ -119,10 +119,7 @@ jobs:
           cache-dependency-path: 'package-lock.json'
 
       - name: Install dependencies
-        run: |
-          if [ ! -d node_modules ]; then
-            npm install
-          fi
+        run: npm install
 
       - name: Cache Electron binaries
         uses: actions/cache@v4
