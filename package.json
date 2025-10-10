@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/hackariens/electron#readme",
   "devDependencies": {
-    "all-contributors-cli": "^3.1.1",
+    "all-contributors-cli": "^6.0.0",
     "cypress": "^15.3.0",
     "electron": "^38.2.1",
     "electron-builder": "^26.0.12",
