@@ -8,7 +8,8 @@
     "build:linux": "electron-builder --linux --config electron-builder.json",
     "build:win": "electron-builder --win --config electron-builder.json",
     "build:mac": "electron-builder --mac --config electron-builder.json",
-    "lint:markdown": "markdownlint README.md"
+    "lint:markdown": "markdownlint README.md",
+    "release": "release-it"
   },
   "main": "apps/main.js",
   "repository": {
@@ -28,6 +29,8 @@
     "electron-builder": "^26.0.12",
     "jscpd": "^4.0.5",
     "markdownlint-cli": "^0.45.0",
+    "npm-run-all": "^4.1.5",
+    "release-it": "^19.0.5",
     "yaml": "^2.8.1"
   }
 }
