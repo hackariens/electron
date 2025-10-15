@@ -1,6 +1,6 @@
 {
   "name": "@hackariens/electron",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Template de nouveau project electron",
   "scripts": {
     "start": "electron .",
