@@ -1,15 +1,20 @@
 {
-  "name": "apps",
+  "name": "hackariens-electron-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Electron app template from Hackariens",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --config electron-builder.json",
+    "build:linux": "electron-builder --linux --config electron-builder.json",
+    "build:win": "electron-builder --win --config electron-builder.json",
+    "build:mac": "electron-builder --mac --config electron-builder.json"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["electron", "template", "hackariens"],
+  "author": "hackariens",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "13.1.3"
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
   }
 }
