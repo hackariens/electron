@@ -133,7 +133,7 @@ jobs:
         if: matrix.platform == 'linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb
+          sudo apt-get install -y xvfb libglib2.0-dev libgtk-3-dev pkg-config
 
       - name: Build Electron app (Linux)
         if: matrix.platform == 'linux'
