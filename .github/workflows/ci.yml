@@ -21,6 +21,12 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      
+      - name: Setup Actionlint
+        uses: raven-actions/actionlint@v2
+      
+      - name: Setup Task
+        uses: go-task/setup-task@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -42,14 +48,8 @@ jobs:
             npm install
           fi
 
-      - name: Lint markdown files
-        run: npm run lint:markdown
-
-      - name: Check for duplicate code
-        run: npx jscpd apps/
-
-      - name: License check
-        run: npx license-checker --summary
+      - name: exec lint
+        run: task lint:all
 
   test:
     name: Tests
@@ -61,6 +61,9 @@ jobs:
         uses: actions/checkout@v5
         with:
           submodules: recursive
+      
+      - name: Setup Task
+        uses: go-task/setup-task@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -110,6 +113,9 @@ jobs:
         uses: actions/checkout@v5
         with:
           submodules: recursive
+      
+      - name: Setup Task
+        uses: go-task/setup-task@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
