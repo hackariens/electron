@@ -21,6 +21,6 @@
     "electron": "38.2.*",
     "electron-builder": "26.0.*",
     "jscpd": "4.0.*",
-    "release-it": "19.0.*"
+    "release-it": "19.1.*"
   }
 }
