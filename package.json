@@ -19,7 +19,7 @@
   "homepage": "https://github.com/hackariens/electron#readme",
   "devDependencies": {
     "electron": "39.8.*",
-    "electron-builder": "26.0.*",
+    "electron-builder": "26.15.*",
     "jscpd": "5.2.*",
     "release-it": "21.0.*"
   }
